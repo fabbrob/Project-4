@@ -1,5 +1,18 @@
 import React from "react";
 
+const toCountries = () => {
+    window.location = '/countries';
+}
+const toFlags = () => {
+    window.location = '/flags';
+}
+const toCapitals = () => {
+    window.location = '/capitals';
+}
+const toBorders = () => {
+    window.location = '/borders';
+}
+
 const HomePage = (props) => {
     return (
         <div className="homePage">
@@ -10,7 +23,7 @@ const HomePage = (props) => {
         ></img>
         <h1>Geographle</h1>
         <h2>Test your geography knowledge!</h2>
-        <div className="gameTab">
+        <div className="gameTab" onClick={toCountries}>
           <div>
             <i className="fa-solid fa-earth-americas icon"></i>
           </div>
@@ -18,7 +31,7 @@ const HomePage = (props) => {
             <p>Countries</p>
           </div>
         </div>
-        <div className="gameTab">
+        <div className="gameTab" onClick={toFlags}>
           <div>
             <i className="fa-solid fa-flag icon"></i>
           </div>
@@ -26,7 +39,7 @@ const HomePage = (props) => {
             <p>Flags</p>
           </div>
         </div>
-        <div className="gameTab">
+        <div className="gameTab" onClick={toCapitals}>
           <div>
             <i className="fa-solid fa-building-columns icon"></i>
           </div>
@@ -34,7 +47,7 @@ const HomePage = (props) => {
             <p>Capitals</p>
           </div>
         </div>
-        <div className="gameTab">
+        <div className="gameTab" onClick={toBorders}>
           <div>
             <i className="fa-solid fa-road-barrier icon icon"></i>
           </div>
