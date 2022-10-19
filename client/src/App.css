@@ -1,6 +1,68 @@
+:root {
+  --primary-font: 'Bebas Neue', cursive;
+  --primary-color: #8cd2fa;
+  --secondary-color: #d9d9d9;
+  --hover-color: #000000;
+  --hover-font: #d9d9d9;
+}
+
+body {
+  background-color: var(--primary-color);
+}
 .homePage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+
+  margin-top: 5%;
+  font-family: var(--primary-font);
+}
+
+.logo {
+  width: 300px;
+}
+
+.homePage h1 {
+  font-size: 36px;
+}
+
+.homePage h1, .homePage h2 {
+  margin: 0 0 15px 0;
+}
+
+.homePage h2 {
+  margin-bottom: 15px;
+}
+
+.gameTab {
+  display: grid;
+  grid-template-columns: 15% 1fr 15%;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color: var(--secondary-color);
+  width: 20%;
+  min-width: 300px;
+}
+
+.gameTab:hover {
+  background-color: var(--hover-color);
+  color: var(--hover-font);
+  cursor: pointer;
+}
+
+.gameTab div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameTab p {
+  margin: 10px;
+  font-size: 25px;
+}
+
+.icon {
+  font-size: 1.5em;
 }

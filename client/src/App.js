@@ -1,30 +1,19 @@
-import React from 'react';
-import {BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
+import HomePage from "./HomePage";
 
 function App() {
   return (
-    <div className='homePage'>
-      <img src="/images/logo.png" alt='Geographle Logo'></img>
-      <h1>Geograple</h1>
-      <h2>Test your geography knowledge</h2>
-      <div>
-          <img src='logo'></img>
-          <p>Title</p>
-      </div>
-      <div>
-          <img src='logo'></img>
-          <p>Title</p>
-      </div>
-      <div>
-          <img src='logo'></img>
-          <p>Title</p>
-      </div>
-      <div>
-          <img src='logo'></img>
-          <p>Title</p>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage/>}></Route>
+        <Route path="/countries" element={<p>Countries</p>}></Route>
+        <Route path="/flags" element={<p>Flags</p>}></Route>
+        <Route path="/capitals" element={<p>Capitals</p>}></Route>
+        <Route path="/borders" element={<p>Borders</p>}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
