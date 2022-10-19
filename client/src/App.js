@@ -1,9 +1,29 @@
-
+import React from 'react';
+import {BrowserRouter, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
-    <div>
-      <h1>Test</h1>
+    <div className='homePage'>
+      <img src="/images/logo.png" alt='Geographle Logo'></img>
+      <h1>Geograple</h1>
+      <h2>Test your geography knowledge</h2>
+      <div>
+          <img src='logo'></img>
+          <p>Title</p>
+      </div>
+      <div>
+          <img src='logo'></img>
+          <p>Title</p>
+      </div>
+      <div>
+          <img src='logo'></img>
+          <p>Title</p>
+      </div>
+      <div>
+          <img src='logo'></img>
+          <p>Title</p>
+      </div>
     </div>
   );
 }
