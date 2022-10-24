@@ -1,27 +1,13 @@
 import React from "react";
+import {toHome, toGame} from './Helpers';
 
 const PlayPage = (props) => {
-  const toHome = () => {
-    window.location = "/";
-  };
-
-  const toGame = () => {
-    if (window.location.pathname === "/countries") {
-      window.location = "/countries/play";
-    } else if (window.location.pathname === "/flags") {
-      window.location = "/flags/play";
-    } else if (window.location.pathname === "/capitals") {
-      window.location = "/capitals/play";
-    } else {
-      window.location = "/borders/play";
-    }
-  };
 
   let title;
   if (window.location.pathname === "/countries") {
-    title = "Guess all the countries by their shape";
+    title = "Guess all of the countries by their shape";
   } else if (window.location.pathname === "/flags") {
-    title = "Guess all the countries by their flags";
+    title = "Guess all of the countries by their flags";
   } else if (window.location.pathname === "/capitals") {
     title = "Guess the capitals of all the countries";
   } else {

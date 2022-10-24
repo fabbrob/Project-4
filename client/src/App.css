@@ -4,6 +4,8 @@
   --secondary-color: #d9d9d9;
   --hover-color: #000000;
   --hover-font: #8e8e8e;
+  --correct-colour: #00e903;
+  --incorrect-colour: #ee5b5b;
 }
 
 body {
@@ -187,18 +189,19 @@ body {
 .guessField {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
-
   height: 40px;
   width: 300px;
-  background-color: var(--secondary-color);
   margin-top: 1%;
+}
+
+.guessField > * {
+  font-family: var(--primary-font);
+  background-color: var(--secondary-color);
 }
 
 .guessInput {
   border: none;
   outline: none;
-  background-color: var(--secondary-color);
-  font-family: var(--primary-font);
   text-align: center;
   font-size: 24px;
   grid-column: 2 / 3;
@@ -210,4 +213,60 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
+  font-family: var(--primary-font);
+}
+
+.unanswered {
+  background-color: var(--secondary-color);
+  color: black;
+}
+
+.correct > *{
+  background-color: var(--correct-colour);
+  color: white;
+}
+
+.incorrect > * {
+ background-color:  var(--incorrect-colour);
+ color: white;
+}
+
+/* FINISHED PAGE */
+
+.finishedPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 7%;
+  font-family: var(--primary-font);
+}
+
+.finishedTitle {
+  font-size: 54px;
+}
+
+.finishedScore, .finishedTime {
+  font-size: 28px;
+}
+
+.backButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--secondary-color);
+  border-radius: 40px;
+
+  font-size: 36px;
+  width: 15%;
+  min-width: 300px;
+  margin-top: 5%;
+}
+
+.backButton:hover {
+  cursor: pointer;
+  background-color: var(--hover-color);
+  color: var(--hover-font);
 }
