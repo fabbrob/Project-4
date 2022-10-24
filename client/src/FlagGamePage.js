@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
+import {countryData} from "./countryData";
 
 const backToPlayPage = () => {
   window.location = "/flags";
@@ -17,7 +18,7 @@ const convertSecondsToTimer = (secs) => {
   return `${minutes}:${seconds}`;
 };
 
-const GamePage = (props) => {
+const FlagGamePage = (props) => {
   const [timer, setTimer] = useState(0);
   const [guess, setGuess] = useState("");
 
@@ -63,4 +64,4 @@ const GamePage = (props) => {
   );
 };
 
-export default GamePage;
+export default FlagGamePage;
