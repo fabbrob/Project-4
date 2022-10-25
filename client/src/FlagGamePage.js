@@ -46,7 +46,7 @@ const FlagGamePage = (props) => {
     //if user entered
     if (event.keyCode === 13) {
       //if answer is correct
-      if (guess === countries[index].name) {
+      if (guess.toLowerCase() === countries[index].name) {
         //display as correct
         setResult("correct");
         setAnswer(countries[index].name);
