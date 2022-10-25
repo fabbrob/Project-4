@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
-import { backToPlayPage, convertSecondsToTimer} from "./Helpers";
+import { backToFlagPage, convertSecondsToTimer} from "./Helpers";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 import CountryData from "./CountryData";
 
@@ -79,11 +79,12 @@ const FlagGamePage = (props) => {
       <div className="gamePage">
         <h1>Flags</h1>
         <p className="timer">{convertSecondsToTimer(timer)}</p>
-        <p className="giveUp" onClick={backToPlayPage}>
+        <p className="giveUp" onClick={backToFlagPage}>
           Give Up?
         </p>
         <span
-          className={`fi fi-${countries[index].flag_abbreviation} flag`}
+          className={`fi fi-${countries[index].abbr} flag`}
+          alt='flagToGuess'
         ></span>
         <p className="answerReveal">{answer}</p>
         <GuessField

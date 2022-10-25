@@ -180,6 +180,11 @@ body {
   margin: 5% 0 1% 0;
 }
 
+.shape {
+  margin: 5% 0 1% 0;
+  height: 320px;
+}
+
 .answerReveal {
   margin: none;
   font-size: 24px;

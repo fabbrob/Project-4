@@ -2,7 +2,7 @@ const CountryData = [
   {
     name: "afghanistan",
     capital: "kabul",
-    flag_abbreviation: "af",
+    abbr: "af",
     borders: [
       "china",
       "iran",
@@ -15,55 +15,55 @@ const CountryData = [
   {
     name: "albania",
     capital: "tirana",
-    flag_abbreviation: "al",
+    abbr: "al",
     borders: ["greece", "kosovo", "montenegro", "north macedonia"],
   },
   {
     name: "algeria",
     capital: "algiers",
-    flag_abbreviation: "dz",
+    abbr: "dz",
     borders: ["libya", "mali", "mauritania", "morocco", "niger", "tunisia"],
   },
   {
     name: "andorra",
     capital: "andorra la vella",
-    flag_abbreviation: "ad",
+    abbr: "ad",
     borders: ["france", "spain"],
   },
   {
     name: "angola",
     capital: "luanda",
-    flag_abbreviation: "ao",
+    abbr: "ao",
     borders: ["democratic republic of the congo", "namibia", "zambia"],
   },
   {
     name: "antigua and barbuda",
     capital: "saint johns",
-    flag_abbreviation: "ag",
+    abbr: "ag",
     borders: [],
   },
   {
     name: "argentina",
     capital: "buenos aires",
-    flag_abbreviation: "ar",
+    abbr: "ar",
     borders: ["bolivia", "brazil", "chile", "paraguay", "uruguay"],
   },
   {
     name: "armenia",
     capital: "yerevan",
-    flag_abbreviation: "am",
+    abbr: "am",
     borders: ["azerbaijan", "georgia", "iran", "turkey"],
   },
   {
     name: "australia",
     capital: "canberra",
-    flag_abbreviation: "au",
+    abbr: "au",
     borders: [],
   },
   {
     name: "austria",
     capital: "vienna",
-    flag_abbreviation: "at",
+    abbr: "at",
     borders: [
       "czechia",
       "germany",
@@ -78,19 +78,19 @@ const CountryData = [
   {
     name: "azerbaijan",
     capital: "baku",
-    flag_abbreviation: "az",
+    abbr: "az",
     borders: ["armenia", "georgia", "iran", "russia", "turkey"],
   },
   {
     name: "bahamas",
     capital: "capital",
-    flag_abbreviation: "bs",
+    abbr: "bs",
     borders: [],
   },
   {
     name: "bahrain",
     capital: "capital",
-    flag_abbreviation: "bh",
+    abbr: "bh",
     borders: [],
   },
 ];

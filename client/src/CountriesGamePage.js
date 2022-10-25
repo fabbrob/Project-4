@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
-import { backToPlayPage, convertSecondsToTimer} from "./Helpers";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { backToCountriesPage, convertSecondsToTimer } from "./Helpers";
+import CountryShapes from "https://cdn.skypack.dev/world-map-country-shapes";
 import CountryData from "./CountryData";
 
 //helpers
@@ -11,6 +11,8 @@ const getRandomisedCountries = () => {
 };
 
 const randomisedCountries = getRandomisedCountries();
+
+console.log(CountryShapes);
 
 //component
 const FlagGamePage = (props) => {
@@ -77,14 +79,12 @@ const FlagGamePage = (props) => {
   if (index < countries.length) {
     return (
       <div className="gamePage">
-        <h1>Flags</h1>
+        <h1>Countries</h1>
         <p className="timer">{convertSecondsToTimer(timer)}</p>
-        <p className="giveUp" onClick={backToPlayPage}>
+        <p className="giveUp" onClick={backToCountriesPage}>
           Give Up?
         </p>
-        <span
-          className={`fi fi-${countries[index].flag_abbreviation} flag`}
-        ></span>
+        <img src={`/images/countries/${countries[index].abbr}/512.png`} className="shape" alt="countryToGuess"></img>
         <p className="answerReveal">{answer}</p>
         <GuessField
           handleInputChange={handleInputChange}

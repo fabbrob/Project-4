@@ -11,9 +11,13 @@ export const convertSecondsToTimer = (secs) => {
 };
 
 //window directs
-export const backToPlayPage = () => {
+export const backToFlagPage = () => {
   window.location = "/flags";
 };
+
+export const backToCountriesPage = () => {
+    window.location = "/countries";
+  };
 
 export const toHome = () => {
   window.location = "/";
