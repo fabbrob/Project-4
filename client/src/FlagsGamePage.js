@@ -13,7 +13,7 @@ const getRandomisedCountries = () => {
 const randomisedCountries = getRandomisedCountries();
 
 //component
-const FlagGamePage = (props) => {
+const FlagsGamePage = (props) => {
   const [timer, setTimer] = useState(0);
   const [guess, setGuess] = useState("");
   const [countries, setCountries] = useState(randomisedCountries);
@@ -106,4 +106,4 @@ const FlagGamePage = (props) => {
   }
 };
 
-export default FlagGamePage;
+export default FlagsGamePage;

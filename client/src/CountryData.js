@@ -83,13 +83,13 @@ const CountryData = [
   },
   {
     name: "bahamas",
-    capital: "capital",
+    capital: "nassau",
     abbr: "bs",
     borders: [],
   },
   {
     name: "bahrain",
-    capital: "capital",
+    capital: "manama",
     abbr: "bh",
     borders: [],
   },

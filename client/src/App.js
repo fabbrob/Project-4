@@ -4,7 +4,8 @@ import "./App.css";
 import HomePage from "./HomePage";
 import PlayPage from "./PlayPage";
 import CountriesGamePage from "./CountriesGamePage";
-import FlagGamePage from "./FlagGamePage";
+import FlagsGamePage from "./FlagsGamePage";
+import CapitalsGamePage from "./CapitalsGamePage";
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         <Route path="/capitals" element={<PlayPage/>}></Route>
         <Route path="/borders" element={<PlayPage/>}></Route>
         <Route path="/countries/play" element={<CountriesGamePage/>}></Route>
-        <Route path="/flags/play" element={<FlagGamePage/>}></Route>
+        <Route path="/flags/play" element={<FlagsGamePage/>}></Route>
+        <Route path="/capitals/play" element={<CapitalsGamePage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

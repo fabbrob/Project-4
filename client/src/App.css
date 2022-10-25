@@ -185,9 +185,30 @@ body {
   height: 320px;
 }
 
+.capital {
+  margin: 5% 0 1% 0;
+  height: 320px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.capitalToGuess {
+  font-size: 56px;
+  margin: 0;
+}
+
 .answerReveal {
   margin: none;
   font-size: 24px;
+  height: 1em;
+}
+
+.capitalReveal {
+  margin: 0;
+  font-size: 40px;
   height: 1em;
 }
 

@@ -15,9 +15,13 @@ export const backToFlagPage = () => {
   window.location = "/flags";
 };
 
+export const backToCapitalsPage = () => {
+  window.location = "/capitals";
+};
+
 export const backToCountriesPage = () => {
-    window.location = "/countries";
-  };
+  window.location = "/countries";
+};
 
 export const toHome = () => {
   window.location = "/";
