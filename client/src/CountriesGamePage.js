@@ -12,8 +12,6 @@ const getRandomisedCountries = () => {
 
 const randomisedCountries = getRandomisedCountries();
 
-console.log(CountryShapes);
-
 //component
 const FlagGamePage = (props) => {
   const [timer, setTimer] = useState(0);
@@ -33,10 +31,10 @@ const FlagGamePage = (props) => {
         setTimer((timer) => timer + 1);
       }, 1000);
       //keep the other data the same
-      setGuess(guess);
-      setCountries(countries);
-      setIndex(index);
-      setAmountCorrect(amountCorrect);
+      // setGuess(guess);
+      // setCountries(countries);
+      // setIndex(index);
+      // setAmountCorrect(amountCorrect);
     }
   }, [timer]);
 

@@ -23,6 +23,10 @@ export const backToCountriesPage = () => {
   window.location = "/countries";
 };
 
+export const backToBordersPage = () => {
+  window.location = "/borders";
+};
+
 export const toHome = () => {
   window.location = "/";
 };

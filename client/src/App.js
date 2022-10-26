@@ -6,6 +6,7 @@ import PlayPage from "./PlayPage";
 import CountriesGamePage from "./CountriesGamePage";
 import FlagsGamePage from "./FlagsGamePage";
 import CapitalsGamePage from "./CapitalsGamePage";
+import BordersGamePage from "./BordersGamePage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/countries/play" element={<CountriesGamePage/>}></Route>
         <Route path="/flags/play" element={<FlagsGamePage/>}></Route>
         <Route path="/capitals/play" element={<CapitalsGamePage/>}></Route>
+        <Route path="/borders/play" element={<BordersGamePage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

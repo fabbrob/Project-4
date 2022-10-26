@@ -31,10 +31,10 @@ const FlagsGamePage = (props) => {
         setTimer((timer) => timer + 1);
       }, 1000);
       //keep the other data the same
-      setGuess(guess);
-      setCountries(countries);
-      setIndex(index);
-      setAmountCorrect(amountCorrect);
+      // setGuess(guess);
+      // setCountries(countries);
+      // setIndex(index);
+      // setAmountCorrect(amountCorrect);
     }
   }, [timer]);
 

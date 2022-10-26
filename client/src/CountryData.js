@@ -9,7 +9,7 @@ const CountryData = [
       "pakistan",
       "tajikistan",
       "turkmenistan",
-      "iran",
+      "uzbekistan",
     ],
   },
   {
