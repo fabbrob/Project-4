@@ -1,17 +1,5 @@
 import React from "react";
-
-const toCountries = () => {
-    window.location = '/countries';
-}
-const toFlags = () => {
-    window.location = '/flags';
-}
-const toCapitals = () => {
-    window.location = '/capitals';
-}
-const toBorders = () => {
-    window.location = '/borders';
-}
+import { toFlagPage, toCapitalsPage, toCountriesPage, toBordersPage } from "./Helpers";
 
 const HomePage = (props) => {
     return (
@@ -23,7 +11,7 @@ const HomePage = (props) => {
         ></img>
         <h1>Geographle</h1>
         <h2>Test your geography knowledge!</h2>
-        <div className="gameTab" onClick={toCountries}>
+        <div className="gameTab" onClick={toCountriesPage}>
           <div>
             <i className="fa-solid fa-earth-americas icon"></i>
           </div>
@@ -31,7 +19,7 @@ const HomePage = (props) => {
             <p>Countries</p>
           </div>
         </div>
-        <div className="gameTab" onClick={toFlags}>
+        <div className="gameTab" onClick={toFlagsPage}>
           <div>
             <i className="fa-solid fa-flag icon"></i>
           </div>
@@ -39,7 +27,7 @@ const HomePage = (props) => {
             <p>Flags</p>
           </div>
         </div>
-        <div className="gameTab" onClick={toCapitals}>
+        <div className="gameTab" onClick={toCapitalsPage}>
           <div>
             <i className="fa-solid fa-building-columns icon"></i>
           </div>
@@ -47,7 +35,7 @@ const HomePage = (props) => {
             <p>Capitals</p>
           </div>
         </div>
-        <div className="gameTab" onClick={toBorders}>
+        <div className="gameTab" onClick={toBordersPage}>
           <div>
             <i className="fa-solid fa-road-barrier icon icon"></i>
           </div>

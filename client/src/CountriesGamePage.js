@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
-import { backToCountriesPage, convertSecondsToTimer } from "./Helpers";
+import { toCountriesPage, convertSecondsToTimer } from "./Helpers";
 import CountryShapes from "https://cdn.skypack.dev/world-map-country-shapes";
 import CountryData from "./CountryData";
 
@@ -79,7 +79,7 @@ const FlagGamePage = (props) => {
       <div className="gamePage">
         <h1>Countries</h1>
         <p className="timer">{convertSecondsToTimer(timer)}</p>
-        <p className="giveUp" onClick={backToCountriesPage}>
+        <p className="giveUp" onClick={toCountriesPage}>
           Give Up?
         </p>
         <img src={`/images/countries/${countries[index].abbr}/512.png`} className="shape" alt="countryToGuess"></img>

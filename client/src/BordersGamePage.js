@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
-import { backToBordersPage, convertSecondsToTimer } from "./Helpers";
+import { toBordersPage, convertSecondsToTimer } from "./Helpers";
 import CountryData from "./CountryData";
 import BorderAnswerField from "./BorderAnswerField";
 
@@ -143,7 +143,7 @@ const BordersGamePage = (props) => {
       <div className="gamePage">
         <h1>Borders</h1>
         <p className="timer">{convertSecondsToTimer(timer)}</p>
-        <p className="giveUp" onClick={backToBordersPage}>
+        <p className="giveUp" onClick={toBordersPage}>
           Give Up?
         </p>
         <p className="bordersToGuess">{countries[index].name}</p>

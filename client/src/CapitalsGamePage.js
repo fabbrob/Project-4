@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
-import { backToCapitalsPage, convertSecondsToTimer} from "./Helpers";
+import { toCapitalsPage, convertSecondsToTimer} from "./Helpers";
 import CountryData from "./CountryData";
 
 //helpers
@@ -78,7 +78,7 @@ const CapitalsGamePage = (props) => {
       <div className="gamePage">
         <h1>Flags</h1>
         <p className="timer">{convertSecondsToTimer(timer)}</p>
-        <p className="giveUp" onClick={backToCapitalsPage}>
+        <p className="giveUp" onClick={toCapitalsPage}>
           Give Up?
         </p>
         <div className='capital'>

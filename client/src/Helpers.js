@@ -11,19 +11,19 @@ export const convertSecondsToTimer = (secs) => {
 };
 
 //window directs
-export const backToFlagPage = () => {
+export const toFlagsPage = () => {
   window.location = "/flags";
 };
 
-export const backToCapitalsPage = () => {
+export const toCapitalsPage = () => {
   window.location = "/capitals";
 };
 
-export const backToCountriesPage = () => {
+export const toCountriesPage = () => {
   window.location = "/countries";
 };
 
-export const backToBordersPage = () => {
+export const toBordersPage = () => {
   window.location = "/borders";
 };
 
