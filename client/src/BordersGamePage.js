@@ -15,7 +15,7 @@ const getRandomisedCountries = () => {
 };
 const randomisedCountries = getRandomisedCountries();
 
-const getAnswerObjects = (borders) => {
+const createAnswerObjects = (borders) => {
   return borders.map(() => {
     return {
       attempt: "",
@@ -31,7 +31,7 @@ const BordersGamePage = (props) => {
   const [countries, setCountries] = useState(randomisedCountries);
   const [index, setIndex] = useState(0);
   const [borders, setBorders] = useState(randomisedCountries[index]?.borders);
-  const [answers, setAnswers] = useState(getAnswerObjects(borders));
+  const [answers, setAnswers] = useState(createAnswerObjects(borders));
   const [answerIndex, setAnswerIndex] = useState(0);
   const [result, setResult] = useState("unanswered");
   const [amountCorrect, setAmountCorrect] = useState(0);
@@ -44,14 +44,6 @@ const BordersGamePage = (props) => {
       setTimeout(() => {
         setTimer((timer) => timer + 1);
       }, 1000);
-      //   //keep the other data the same
-      //   setGuess(guess);
-      //   setCountries(countries);
-      //   setIndex(index);
-      //   setBorders(borders);
-      //   setAnswers(answers);
-      //   setAnswerIndex(answerIndex);
-      //   setAmountCorrect(amountCorrect);
     }
   }, [timer]);
 
@@ -59,12 +51,17 @@ const BordersGamePage = (props) => {
     if (index < countries.length) {
       //reset borders to new country
       setBorders(countries[index].borders);
+    }
+  }, [index]);
+
+  useEffect(() => {
+    if (index < countries.length) {
       //reset answers
-      setAnswers(getAnswerObjects(countries[index].borders));
+      setAnswers(createAnswerObjects(borders));
       //reset answer index
       setAnswerIndex(0);
     }
-  }, [index]);
+  }, [borders]);
 
   const handleInputChange = (event) => {
     setGuess(event.target.value.slice(0, 24));
