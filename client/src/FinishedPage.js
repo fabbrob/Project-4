@@ -1,5 +1,5 @@
 import React from "react";
-import { backToFlagPage, convertSecondsToTimer } from "./Helpers";
+import { toFlagsPage, convertSecondsToTimer } from "./Helpers";
 
 const FinishedPage = (props) => {
   return (
@@ -10,7 +10,7 @@ const FinishedPage = (props) => {
         SCORE: {props.amountCorrect} / {props.length}
       </p>
       <p className="finishedTime">TIME: {convertSecondsToTimer(props.timer)}</p>
-      <div className="backButton" onClick={backToFlagPage}>
+      <div className="backButton" onClick={toFlagsPage}>
         <p>Back</p>
       </div>
     </div>
