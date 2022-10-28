@@ -1,16 +1,36 @@
 import React from "react";
-import { toFlagsPage, convertSecondsToTimer } from "./Helpers";
+import { toCountriesPage, toCapitalsPage, toBordersPage,toFlagsPage, convertSecondsToTimer } from "./Helpers";
 
 const FinishedPage = (props) => {
+
+  const location = window.location.pathname;
+  console.log(window.location);
+  let gameType;
+  let linkFunc;
+
+  if(location.includes("countries")){
+    gameType = "countries";
+    linkFunc = toCountriesPage;
+  } else if(location.includes("flags")){
+    gameType = "flags";
+    linkFunc = toFlagsPage;
+  }else if(location.includes("capitals")){
+    gameType = "capitals";
+    linkFunc = toCapitalsPage;
+  }else if(location.includes("borders")){
+    gameType = "borders";
+    linkFunc = toBordersPage;
+  }
+
   return (
     <div className="finishedPage">
-      <h1>Flags</h1>
+      <h1>{gameType}</h1>
       <p className="finishedTitle">Game Finished</p>
       <p className="finishedScore">
         SCORE: {props.amountCorrect} / {props.length}
       </p>
       <p className="finishedTime">TIME: {convertSecondsToTimer(props.timer)}</p>
-      <div className="backButton" onClick={toFlagsPage}>
+      <div className="backButton" onClick={linkFunc}>
         <p>Back</p>
       </div>
     </div>
