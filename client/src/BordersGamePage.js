@@ -64,7 +64,7 @@ const BordersGamePage = (props) => {
   }, [borders]);
 
   const handleInputChange = (event) => {
-    setGuess(event.target.value.slice(0, 24));
+    setGuess(event.target.value.slice(0, 32));
   };
 
   const inputEntered = (event) => {

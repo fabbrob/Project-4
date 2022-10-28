@@ -220,7 +220,7 @@ body {
 .border {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
-  width: 300px;
+  width: 350px;
   height: 38px;
 }
 
@@ -252,7 +252,7 @@ body {
   display: grid;
   grid-template-columns: 10% 1fr 10%;
   height: 40px;
-  width: 300px;
+  width: 350px;
   margin-top: 1%;
   outline: 2px solid black;
 }
