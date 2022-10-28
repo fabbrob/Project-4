@@ -26,6 +26,7 @@ const getAnswerObjects = (borders) => {
 
 const BordersGamePage = (props) => {
   const [timer, setTimer] = useState(0);
+  const [finalTimer, setFinalTimer] = useState(0);
   const [guess, setGuess] = useState("");
   const [countries, setCountries] = useState(randomisedCountries);
   const [index, setIndex] = useState(0);
@@ -72,6 +73,8 @@ const BordersGamePage = (props) => {
   const inputEntered = (event) => {
     //if user entered
     if (event.keyCode === 13) {
+      //save the timer on enter
+      setFinalTimer(timer);
       //check whether the user answer is found and not already answered (i.e. correct)
       const borderFound = borders.includes(guess.toLowerCase());
       const borderUnanswered = answers.find(
@@ -99,12 +102,6 @@ const BordersGamePage = (props) => {
           } else {
             //go to next country
             setIndex(index + 1);
-            // //reset borders to new country
-            // setBorders(countries[index].borders);
-            // //reset answers
-            // setAnswers(getAnswerObjects(borders));
-            // //reset answer index
-            // setAnswerIndex(0);
           }
         }, 1000);
       } //else if incorrect
@@ -127,11 +124,6 @@ const BordersGamePage = (props) => {
           } else {
             //go to next country
             setIndex(index + 1);
-            // setBorders(countries[index].borders);
-            // //reset answers
-            // setAnswers(getAnswerObjects(borders));
-            // //reset answer index
-            // setAnswerIndex(0);
           }
         }, 2000);
       }
@@ -174,7 +166,7 @@ const BordersGamePage = (props) => {
           (acc, country) => acc + country.borders.length,
           0
         )}
-        timer={timer}
+        timer={finalTimer}
       />
     );
   }

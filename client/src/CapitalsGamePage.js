@@ -14,6 +14,7 @@ const randomisedCountries = getRandomisedCountries();
 //component
 const CapitalsGamePage = (props) => {
   const [timer, setTimer] = useState(0);
+  const [finalTimer, setFinalTimer] = useState(0);
   const [guess, setGuess] = useState("");
   const [countries, setCountries] = useState(randomisedCountries);
   const [index, setIndex] = useState(0);
@@ -29,11 +30,6 @@ const CapitalsGamePage = (props) => {
       setTimeout(() => {
         setTimer((timer) => timer + 1);
       }, 1000);
-      //keep the other data the same
-      // setGuess(guess);
-      // setCountries(countries);
-      // setIndex(index);
-      // setAmountCorrect(amountCorrect);
     }
   }, [timer]);
 
@@ -44,6 +40,8 @@ const CapitalsGamePage = (props) => {
   const inputEntered = (event) => {
     //if user entered
     if (event.keyCode === 13) {
+      //save the timer on enter
+      setFinalTimer(timer);
       //if answer is correct
       if (guess.toLowerCase() === countries[index].capital) {
         //display as correct
@@ -98,7 +96,7 @@ const CapitalsGamePage = (props) => {
       <FinishedPage
         amountCorrect={amountCorrect}
         length={countries.length}
-        timer={timer}
+        timer={finalTimer}
       />
     );
   }

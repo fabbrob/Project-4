@@ -15,12 +15,14 @@ const randomisedCountries = getRandomisedCountries();
 //component
 const FlagGamePage = (props) => {
   const [timer, setTimer] = useState(0);
+  const [finalTimer, setFinalTimer] = useState(0);
   const [guess, setGuess] = useState("");
   const [countries, setCountries] = useState(randomisedCountries);
   const [index, setIndex] = useState(0);
   const [result, setResult] = useState("unanswered");
   const [answer, setAnswer] = useState("");
   const [amountCorrect, setAmountCorrect] = useState(0);
+  
 
   //useEffect on every increment of the timer
   useEffect(() => {
@@ -30,11 +32,6 @@ const FlagGamePage = (props) => {
       setTimeout(() => {
         setTimer((timer) => timer + 1);
       }, 1000);
-      //keep the other data the same
-      // setGuess(guess);
-      // setCountries(countries);
-      // setIndex(index);
-      // setAmountCorrect(amountCorrect);
     }
   }, [timer]);
 
@@ -45,6 +42,8 @@ const FlagGamePage = (props) => {
   const inputEntered = (event) => {
     //if user entered
     if (event.keyCode === 13) {
+      //save the timer on enter
+      setFinalTimer(timer);
       //if answer is correct
       if (guess.toLowerCase() === countries[index].name) {
         //display as correct
@@ -97,7 +96,7 @@ const FlagGamePage = (props) => {
       <FinishedPage
         amountCorrect={amountCorrect}
         length={countries.length}
-        timer={timer}
+        timer={finalTimer}
       />
     );
   }

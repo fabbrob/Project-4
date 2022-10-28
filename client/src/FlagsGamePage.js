@@ -15,6 +15,7 @@ const randomisedCountries = getRandomisedCountries();
 //component
 const FlagsGamePage = (props) => {
   const [timer, setTimer] = useState(0);
+  const [finalTimer, setFinalTimer] = useState(0);
   const [guess, setGuess] = useState("");
   const [countries, setCountries] = useState(randomisedCountries);
   const [index, setIndex] = useState(0);
@@ -45,6 +46,8 @@ const FlagsGamePage = (props) => {
   const inputEntered = (event) => {
     //if user entered
     if (event.keyCode === 13) {
+      //save the timer on enter
+      setFinalTimer(timer);
       //if answer is correct
       if (guess.toLowerCase() === countries[index].name) {
         //display as correct
@@ -100,7 +103,7 @@ const FlagsGamePage = (props) => {
       <FinishedPage
         amountCorrect={amountCorrect}
         length={countries.length}
-        timer={timer}
+        timer={finalTimer}
       />
     );
   }

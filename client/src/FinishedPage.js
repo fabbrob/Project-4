@@ -4,7 +4,6 @@ import { toCountriesPage, toCapitalsPage, toBordersPage,toFlagsPage, convertSeco
 const FinishedPage = (props) => {
 
   const location = window.location.pathname;
-  console.log(window.location);
   let gameType;
   let linkFunc;
 
