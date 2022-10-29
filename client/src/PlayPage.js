@@ -5,13 +5,13 @@ const PlayPage = (props) => {
 
   let title;
   if (window.location.pathname === "/countries") {
-    title = "Guess all of the countries by their shape";
+    title = "Guess the countries by their shape";
   } else if (window.location.pathname === "/flags") {
-    title = "Guess all of the countries by their flags";
+    title = "Guess the countries by their flags";
   } else if (window.location.pathname === "/capitals") {
-    title = "Guess the capitals of all the countries";
+    title = "Guess the country by its capital";
   } else {
-    title = "Guess every border of all the countries";
+    title = "Guess the borders of the country";
   }
 
   return (
