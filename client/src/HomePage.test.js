@@ -1,3 +1,8 @@
+/**
+* @jest-environment jsdom
+*/
+
+import '@testing-library/jest-dom';
 import { render, screen } from "@testing-library/react";
 import HomePage from "./HomePage";
 
@@ -9,7 +14,7 @@ test("check for countries button", () => {
 
 test("check for capitals button", () => {
   render(<HomePage />);
-  const button = screen.getByText("captials");
+  const button = screen.getByText("capitals");
   expect(button).toBeInTheDocument();
 });
 
