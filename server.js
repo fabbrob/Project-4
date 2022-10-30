@@ -10,6 +10,10 @@ app.get("/api/test", (req, res) => {
   res.json({ result: "success" });
 });
 
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 app.listen(port, () => {
   console.log(`Server is running on port: http://localhost:${port}`);
 });
