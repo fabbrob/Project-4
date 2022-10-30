@@ -10,8 +10,9 @@ app.get("/api/test", (req, res) => {
   res.json({ result: "success" });
 });
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get("*", (req, res) => {
+  res.setHeader("content-type", "text/html");
+  fs.createReadStream(`${__dirname}/client/build/index.html`).pipe(res);
 });
 
 app.listen(port, () => {
