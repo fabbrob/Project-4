@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
 import { toFlagsPage, convertSecondsToTimer} from "./Helpers";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
 import CountryData from "./CountryData";
 
 //helpers
@@ -80,10 +79,11 @@ const FlagsGamePage = (props) => {
         <p className="giveUp" onClick={toFlagsPage}>
           Give Up?
         </p>
-        <span
-          className={`fi fi-${countries[index].abbr} flag`}
+        <img
+          className="flag"
+          src={`/images/flags/${countries[index].abbr}.svg`}
           alt='flagToGuess'
-        ></span>
+        ></img>
         <p className="answerReveal">{answer}</p>
         <GuessField
           handleInputChange={handleInputChange}

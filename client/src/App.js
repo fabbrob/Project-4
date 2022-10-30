@@ -7,6 +7,7 @@ import CountriesGamePage from "./CountriesGamePage";
 import FlagsGamePage from "./FlagsGamePage";
 import CapitalsGamePage from "./CapitalsGamePage";
 import BordersGamePage from "./BordersGamePage";
+// import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 function App() {
   return (

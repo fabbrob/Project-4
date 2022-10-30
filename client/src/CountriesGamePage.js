@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import GuessField from "./GuessField";
 import FinishedPage from "./FinishedPage";
 import { toCountriesPage, convertSecondsToTimer } from "./Helpers";
-import CountryShapes from "https://cdn.skypack.dev/world-map-country-shapes";
 import CountryData from "./CountryData";
 
 //helpers
