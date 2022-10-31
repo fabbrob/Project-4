@@ -10,6 +10,7 @@ const GuessField = (props) => {
         onChange={props.handleInputChange}
         onKeyUp={props.inputEntered}
         value={props.guess}
+        disabled={props.disabled}
       ></input>
       <div className="guessResult">
         {props.result==='correct' && <i className="fa-solid fa-check"></i>}

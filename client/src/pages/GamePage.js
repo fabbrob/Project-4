@@ -49,6 +49,7 @@ const GamePage = (props) => {
   const [result, setResult] = useState("unanswered");
   const [answer, setAnswer] = useState("");
   const [amountCorrect, setAmountCorrect] = useState(0);
+  const [inputDisabled, setInputDisabled] = useState(false);
   //state variable for borders page
   const [borders, setBorders] = useState(countries[countryIndex]?.borders);
   const [attempts, setAttempts] = useState(createAttemptObjects(borders));
@@ -143,6 +144,7 @@ const GamePage = (props) => {
   const resetBoard = () => {
     setGuess("");
     setResult("unanswered");
+    setInputDisabled(false);
     if (isBordersGame) {
       if (attemptIndex + 1 < attempts.length) {
         setAttemptIndex(attemptIndex + 1);
@@ -167,7 +169,8 @@ const GamePage = (props) => {
     if (event.keyCode === 13) {
       //save the timer on enter
       setFinalTimer(timer);
-
+      //disable the guess field
+      setInputDisabled(true);
       //check answer
       if (isAnswerCorrect()) {
         //if answer correct
@@ -233,6 +236,7 @@ const GamePage = (props) => {
           inputEntered={inputEntered}
           guess={guess}
           result={result}
+          disabled={inputDisabled}
         />
       </div>
     );
