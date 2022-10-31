@@ -31,12 +31,24 @@ export const toHome = () => {
   window.location = "/";
 };
 
+export const toPlayPage = () => {
+  if (window.location.pathname.includes("/countries")) {
+    window.location = "/countries";
+  } else if (window.location.pathname.includes("/flags")) {
+    window.location = "/flags";
+  } else if (window.location.pathname.includes("/capitals")) {
+    window.location = "/capitals";
+  } else {
+    window.location = "/borders";
+  }
+};
+
 export const toGame = () => {
-  if (window.location.pathname === "/countries") {
+  if (window.location.pathname.includes("/countries")) {
     window.location = "/countries/play";
-  } else if (window.location.pathname === "/flags") {
+  } else if (window.location.pathname.includes("/flags")) {
     window.location = "/flags/play";
-  } else if (window.location.pathname === "/capitals") {
+  } else if (window.location.pathname.includes("/capitals")) {
     window.location = "/capitals/play";
   } else {
     window.location = "/borders/play";

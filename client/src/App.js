@@ -3,10 +3,11 @@ import { BrowserRouter, Routes, Route} from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import PlayPage from "./pages/PlayPage";
-import CountriesGamePage from "./pages/CountriesGamePage";
-import FlagsGamePage from "./pages/FlagsGamePage";
-import CapitalsGamePage from "./pages/CapitalsGamePage";
-import BordersGamePage from "./pages/BordersGamePage";
+// import CountriesGamePage from "./pages/CountriesGamePage";
+// import FlagsGamePage from "./pages/FlagsGamePage";
+// import CapitalsGamePage from "./pages/CapitalsGamePage";
+// import BordersGamePage from "./pages/BordersGamePage";
+import GamePage from "./pages/GamePage";
 //heroku test
 
 function App() {
@@ -18,10 +19,10 @@ function App() {
         <Route path="/flags" element={<PlayPage/>}></Route>
         <Route path="/capitals" element={<PlayPage/>}></Route>
         <Route path="/borders" element={<PlayPage/>}></Route>
-        <Route path="/countries/play" element={<CountriesGamePage/>}></Route>
-        <Route path="/flags/play" element={<FlagsGamePage/>}></Route>
-        <Route path="/capitals/play" element={<CapitalsGamePage/>}></Route>
-        <Route path="/borders/play" element={<BordersGamePage/>}></Route>
+        <Route path="/countries/play" element={<GamePage/>}></Route>
+        <Route path="/flags/play" element={<GamePage/>}></Route>
+        <Route path="/capitals/play" element={<GamePage/>}></Route>
+        <Route path="/borders/play" element={<GamePage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

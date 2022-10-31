@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import GuessField from "../components/GuessField";
-import BorderAnswerField from "../components/BorderAnswerField";
 import FinishedPage from "../pages/FinishedPage";
-import {
-  toCountriesPage,
-  toCapitalsPage,
-  toBordersPage,
-  toFlagsPage,
-  convertSecondsToTimer,
-} from "../helpers/Helpers";
+import { toPlayPage, convertSecondsToTimer } from "../helpers/Helpers";
+import BordersInformationDisplay from "../components/BorderInfomationDisplay";
+import CapitalsInformationDisplay from "../components/CapitalsInformationDisplay";
+import CountriesInformationDisplay from "../components/CountriesInformationDisplay";
+import FlagsInformationDisplay from "../components/FlagsInformationDisplay";
 import CountryData from "../CountryData";
 
 //boolean for to determine page
@@ -37,7 +34,7 @@ const getCountries = () => {
 };
 
 const getRandomisedCountries = () => {
-  return getCountries.sort((a, b) => 0.5 - Math.random());
+  return getCountries().sort((a, b) => 0.5 - Math.random());
 };
 
 const countries = getRandomisedCountries();
@@ -80,9 +77,9 @@ const GamePage = (props) => {
     //to reset answers
     if (countryIndex < countries.length) {
       //reset answers
-      setAnswers(createAttemptObjects(borders));
+      setAttempts(createAttemptObjects(borders));
       //reset answer index
-      setAnswerIndex(0);
+      setAttemptIndex(0);
     }
   }, [borders]);
 
@@ -92,8 +89,8 @@ const GamePage = (props) => {
   const isAnswerCorrect = () => {
     if (isBordersGame) {
       const borderFound = borders.includes(guess.toLowerCase());
-      const borderUnanswered = answers.find(
-        (answer) => answer.attempt === guess.toLowerCase()
+      const borderUnanswered = attempts.find(
+        (attempt) => attempt.attempt === guess.toLowerCase()
       );
       return borderFound && borderUnanswered === undefined;
     } else if (isCapitalsGame) {
@@ -115,16 +112,30 @@ const GamePage = (props) => {
   };
 
   //updates answer/attempts
-  const updateAnswer = () => {
+  const updateAnswer = (isCorrect) => {
     if (isBordersGame) {
       //update the user's attempts on screen
       const updatedAttempts = attempts;
       updatedAttempts[attemptIndex].attempt = guess.toLowerCase();
-      updatedAttempts[attemptIndex].state = "incorrect";
+      isCorrect
+        ? (updatedAttempts[attemptIndex].state = "correct")
+        : (updatedAttempts[attemptIndex].state = "incorrect");
       setAttempts(updatedAttempts);
     } else {
       //set the answer reveal
       setAnswer(getCorrectAnswer());
+    }
+  };
+
+  //to get the total guesses
+  const getTotalAnswers = () => {
+    if (isBordersGame) {
+      return countries.reduce(
+        (acc, country) => acc + country.borders.length,
+        0
+      );
+    } else {
+      return countries.length;
     }
   };
 
@@ -164,7 +175,7 @@ const GamePage = (props) => {
         setResult("correct");
         //increment score
         setAmountCorrect(amountCorrect + 1);
-        updateAnswer();
+        updateAnswer(true);
         //reset to base after 1 second
         setTimeout(() => {
           resetBoard();
@@ -173,7 +184,7 @@ const GamePage = (props) => {
         //else if answer incorrect
         //display as incorrect
         setResult("incorrect");
-        updateAnswer();
+        updateAnswer(false);
         //reset to base after 2seconds
         setTimeout(() => {
           resetBoard();
@@ -181,6 +192,59 @@ const GamePage = (props) => {
       }
     }
   };
+
+  if (countryIndex < countries.length) {
+    return (
+      <div className="gamePage">
+        {isBordersGame && <h1>Borders</h1>}
+        {isCapitalsGame && <h1>Capitals</h1>}
+        {isCountriesGame && <h1>Countries</h1>}
+        {isFlagsGame && <h1>Flags</h1>}
+        <p className="timer">{convertSecondsToTimer(timer)}</p>
+        <p className="giveUp" onClick={toPlayPage}>
+          Give Up?
+        </p>
+        {isBordersGame && (
+          <BordersInformationDisplay
+            name={countries[countryIndex].name}
+            attempts={attempts}
+          />
+        )}
+        {isCapitalsGame && (
+          <CapitalsInformationDisplay
+            name={countries[countryIndex].name}
+            answer={answer}
+          />
+        )}
+        {isCountriesGame && (
+          <CountriesInformationDisplay
+            abbr={countries[countryIndex].abbr}
+            answer={answer}
+          />
+        )}
+        {isFlagsGame && (
+          <FlagsInformationDisplay
+            abbr={countries[countryIndex].abbr}
+            answer={answer}
+          />
+        )}
+        <GuessField
+          handleInputChange={handleInputChange}
+          inputEntered={inputEntered}
+          guess={guess}
+          result={result}
+        />
+      </div>
+    );
+  } else {
+    return (
+      <FinishedPage
+        amountCorrect={amountCorrect}
+        length={getTotalAnswers()}
+        timer={finalTimer}
+      />
+    );
+  }
 };
 
 export default GamePage;
