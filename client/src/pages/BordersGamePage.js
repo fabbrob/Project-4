@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import GuessField from "./GuessField";
-import FinishedPage from "./FinishedPage";
-import { toBordersPage, convertSecondsToTimer } from "./Helpers";
-import CountryData from "./CountryData";
-import BorderAnswerField from "./BorderAnswerField";
+import GuessField from "../components/GuessField";
+import FinishedPage from "../pages/FinishedPage";
+import { toBordersPage, convertSecondsToTimer } from "../helpers/Helpers";
+import CountryData from "../CountryData";
+import BorderAnswerField from "../components/BorderAnswerField";
 
 //helpers
 const getCountriesWithBorders = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import HomePageButton from "./HomePageButton";
+import HomePageButton from "../components/HomePageButton";
 
 const HomePage = (props) => {
     return (

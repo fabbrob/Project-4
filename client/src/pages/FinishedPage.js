@@ -1,5 +1,5 @@
 import React from "react";
-import { toCountriesPage, toCapitalsPage, toBordersPage,toFlagsPage, convertSecondsToTimer } from "./Helpers";
+import { toCountriesPage, toCapitalsPage, toBordersPage,toFlagsPage, convertSecondsToTimer } from "../helpers/Helpers";
 
 const FinishedPage = (props) => {
 

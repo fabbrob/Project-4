@@ -1,5 +1,5 @@
 import React from "react";
-import { toFlagsPage, toCapitalsPage, toCountriesPage, toBordersPage } from "./Helpers";
+import { toFlagsPage, toCapitalsPage, toCountriesPage, toBordersPage } from "../helpers/Helpers";
 
 const HomePageButton = (props) => {
 

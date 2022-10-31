@@ -1,5 +1,5 @@
 import React from "react";
-import {toHome, toGame} from './Helpers';
+import {toHome, toGame} from '../helpers/Helpers';
 
 const PlayPage = (props) => {
 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import GuessField from "./GuessField";
-import FinishedPage from "./FinishedPage";
-import { toCountriesPage, convertSecondsToTimer } from "./Helpers";
-import CountryData from "./CountryData";
+import GuessField from "../components/GuessField";
+import FinishedPage from "../pages/FinishedPage";
+import { toCountriesPage, convertSecondsToTimer } from "../helpers/Helpers";
+import CountryData from "../CountryData";
 
 //helpers
 const getRandomisedCountries = () => {

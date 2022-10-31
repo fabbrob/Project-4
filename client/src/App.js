@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import "./App.css";
-import HomePage from "./HomePage";
-import PlayPage from "./PlayPage";
-import CountriesGamePage from "./CountriesGamePage";
-import FlagsGamePage from "./FlagsGamePage";
-import CapitalsGamePage from "./CapitalsGamePage";
-import BordersGamePage from "./BordersGamePage";
+import HomePage from "./pages/HomePage";
+import PlayPage from "./pages/PlayPage";
+import CountriesGamePage from "./pages/CountriesGamePage";
+import FlagsGamePage from "./pages/FlagsGamePage";
+import CapitalsGamePage from "./pages/CapitalsGamePage";
+import BordersGamePage from "./pages/BordersGamePage";
 //heroku test
 
 function App() {
