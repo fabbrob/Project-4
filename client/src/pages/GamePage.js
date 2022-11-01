@@ -104,7 +104,7 @@ const GamePage = (props) => {
       return guess.toLowerCase() === countries[countryIndex].capital;
     } else {
       //countries/flags
-      return guess.toLowerCase() === countries[countryIndex].name;
+      return countries[countryIndex].names.includes(guess.toLowerCase());
     }
   };
 

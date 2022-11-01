@@ -1,6 +1,7 @@
 const CountryData = [
   {
     name: "afghanistan",
+    names: ['afghanistan'],
     capital: "kabul",
     abbr: "af",
     borders: [
@@ -14,54 +15,63 @@ const CountryData = [
   },
   {
     name: "albania",
+    names: ['albania'],
     capital: "tirana",
     abbr: "al",
     borders: ["greece", "kosovo", "montenegro", "north macedonia"],
   },
   {
     name: "algeria",
+    names: ["algeria"],
     capital: "algiers",
     abbr: "dz",
     borders: ["libya", "mali", "mauritania", "morocco", "niger", "tunisia"],
   },
   {
     name: "andorra",
+    names: ["andorra"],
     capital: "andorra la vella",
     abbr: "ad",
     borders: ["france", "spain"],
   },
   {
     name: "angola",
+    names: ["angola"],
     capital: "luanda",
     abbr: "ao",
     borders: ["democratic republic of the congo", "namibia", "zambia"],
   },
   {
     name: "antigua and barbuda",
+    names: ["antigua and barbuda", "antigua", "barbuda"],
     capital: "saint johns",
     abbr: "ag",
     borders: [],
   },
   {
     name: "argentina",
+    names: ["argentina"],
     capital: "buenos aires",
     abbr: "ar",
     borders: ["bolivia", "brazil", "chile", "paraguay", "uruguay"],
   },
   {
     name: "armenia",
+    names: ["armenia"],
     capital: "yerevan",
     abbr: "am",
     borders: ["azerbaijan", "georgia", "iran", "turkey"],
   },
   {
     name: "australia",
+    names: ["australia"],
     capital: "canberra",
     abbr: "au",
     borders: [],
   },
   {
     name: "austria",
+    names: ["austria"],
     capital: "vienna",
     abbr: "at",
     borders: [
@@ -77,18 +87,21 @@ const CountryData = [
   },
   {
     name: "azerbaijan",
+    names: ["azerbaijan"],
     capital: "baku",
     abbr: "az",
     borders: ["armenia", "georgia", "iran", "russia", "turkey"],
   },
   {
-    name: "bahamas",
+    name: "the bahamas",
+    names: ["bahamas", "the bahamas"],
     capital: "nassau",
     abbr: "bs",
     borders: [],
   },
   {
     name: "bahrain",
+    names: ["bahrain"],
     capital: "manama",
     abbr: "bh",
     borders: [],
