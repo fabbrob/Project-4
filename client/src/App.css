@@ -103,6 +103,7 @@ body {
 .playPage h2 {
   margin: 5vh 0 5vh 0;
   font-size: 36px;
+  text-align: center;
 }
 
 .playButton {
