@@ -203,8 +203,9 @@ body {
   align-items: center;
 }
 
-.capitalToGuess, .bordersToGuess {
+.capitalToGuess {
   margin: 0;
+  font-size: 56px;
 }
 
 .bordersToGuess {

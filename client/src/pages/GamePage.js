@@ -101,7 +101,7 @@ const GamePage = (props) => {
       );
       return borderFound && borderUnanswered === undefined;
     } else if (isCapitalsGame) {
-      return guess.toLowerCase() === countries[countryIndex].capital;
+      return countries[countryIndex].capitals.includes(guess.toLowerCase());
     } else {
       //countries/flags
       return countries[countryIndex].names.includes(guess.toLowerCase());
