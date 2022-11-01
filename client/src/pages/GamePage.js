@@ -94,17 +94,18 @@ const GamePage = (props) => {
 
   //checks if the submitted guess is an attempt
   const isAnswerCorrect = () => {
+    const userGuess = guess.trim();
     if (isBordersGame) {
-      const borderFound = borders.includes(guess.toLowerCase());
+      const borderFound = borders.includes(userGuess.toLowerCase());
       const borderUnanswered = attempts.find(
-        (attempt) => attempt.attempt === guess.toLowerCase()
+        (attempt) => attempt.attempt === userGuess.toLowerCase()
       );
       return borderFound && borderUnanswered === undefined;
     } else if (isCapitalsGame) {
-      return countries[countryIndex].capitals.includes(guess.toLowerCase());
+      return countries[countryIndex].capitals.includes(userGuess.toLowerCase());
     } else {
       //countries/flags
-      return countries[countryIndex].names.includes(guess.toLowerCase());
+      return countries[countryIndex].names.includes(userGuess.toLowerCase());
     }
   };
 
