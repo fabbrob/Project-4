@@ -69,7 +69,7 @@ const GamePage = (props) => {
 
   //to keep the guess field onFocus
   useEffect(() => {
-      inputFocus.current.focus();
+      inputFocus?.current?.focus();
   });
 
   //to update borders
