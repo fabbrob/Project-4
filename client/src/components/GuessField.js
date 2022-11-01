@@ -11,6 +11,7 @@ const GuessField = (props) => {
         onKeyUp={props.inputEntered}
         value={props.guess}
         disabled={props.disabled}
+        ref={props.focus}
       ></input>
       <div className="guessResult">
         {props.result==='correct' && <i className="fa-solid fa-check"></i>}

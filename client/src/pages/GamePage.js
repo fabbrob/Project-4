@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import GuessField from "../components/GuessField";
 import FinishedPage from "../pages/FinishedPage";
 import { toPlayPage, convertSecondsToTimer } from "../helpers/Helpers";
@@ -54,6 +54,7 @@ const GamePage = (props) => {
   const [borders, setBorders] = useState(countries[countryIndex]?.borders);
   const [attempts, setAttempts] = useState(createAttemptObjects(borders));
   const [attemptIndex, setAttemptIndex] = useState(0);
+  const inputFocus = useRef();
 
   //useEffect on every increment of the timer
   useEffect(() => {
@@ -65,6 +66,11 @@ const GamePage = (props) => {
       }, 1000);
     }
   }, [timer]);
+
+  //to keep the guess field onFocus
+  useEffect(() => {
+      inputFocus.current.focus();
+  });
 
   //to update borders
   useEffect(() => {
@@ -237,6 +243,7 @@ const GamePage = (props) => {
           guess={guess}
           result={result}
           disabled={inputDisabled}
+          focus={inputFocus}
         />
       </div>
     );
