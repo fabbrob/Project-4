@@ -19,7 +19,6 @@ const createAttemptObjects = (borders) => {
   return borders.map((border) => {
     return {
       attempt: "",
-      answer: border,
       state: "unanswered",
     };
   });
@@ -69,7 +68,7 @@ const GamePage = (props) => {
 
   //to keep the guess field onFocus
   useEffect(() => {
-      inputFocus?.current?.focus();
+    inputFocus?.current?.focus();
   });
 
   //to update borders
@@ -92,15 +91,45 @@ const GamePage = (props) => {
 
   //helper functions
 
+  //checks to see if guess exists in borders
+  const existsInBorders = (userGuess) => {
+    for (let borderNames of borders) {
+      if (borderNames.includes(userGuess)) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  //gets offical answer of a correct guess in borders
+  const getOfficialAnswer = (userGuess) => {
+    for (let borderNames of borders) {
+      if (borderNames.includes(userGuess)) {
+        return borderNames[0];
+      }
+    }
+    return "doesn't exist";
+  }
+
   //checks if the submitted guess is an attempt
   const isAnswerCorrect = () => {
     const userGuess = guess.trim();
     if (isBordersGame) {
-      const borderFound = borders.includes(userGuess.toLowerCase());
-      const borderUnanswered = attempts.find(
-        (attempt) => attempt.attempt === userGuess.toLowerCase()
-      );
-      return borderFound && borderUnanswered === undefined;
+      //is the userGuess correct
+      const borderFound = existsInBorders(userGuess.toLowerCase());
+      //compare whether the user guess and the attempt exist in the same array in borders (i.e. is the border unanswered)
+      let borderUnanswered = true;
+      for (let attempt of attempts) {
+        for (let borderNames of borders) {
+          if (
+            borderNames.includes(attempt.attempt) &&
+            borderNames.includes(userGuess.toLowerCase())
+          ) {
+            borderUnanswered = false;
+          }
+        }
+      }
+      return borderFound && borderUnanswered;
     } else if (isCapitalsGame) {
       return countries[countryIndex].capitals.includes(userGuess.toLowerCase());
     } else {
@@ -123,8 +152,11 @@ const GamePage = (props) => {
   const updateAnswer = (isCorrect) => {
     if (isBordersGame) {
       //update the user's attempts on screen
+      const userGuess = guess.trim();
       const updatedAttempts = attempts;
-      updatedAttempts[attemptIndex].attempt = guess.toLowerCase();
+      isCorrect
+        ? (updatedAttempts[attemptIndex].attempt = getOfficialAnswer(userGuess.toLowerCase()))
+        : (updatedAttempts[attemptIndex].attempt = userGuess.toLowerCase());
       isCorrect
         ? (updatedAttempts[attemptIndex].state = "correct")
         : (updatedAttempts[attemptIndex].state = "incorrect");
