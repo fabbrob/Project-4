@@ -150,6 +150,55 @@ body {
   margin-top: 1vh;
 }
 
+.modal {
+  width: 40vw;
+  height: 30vw;
+  margin-top: 5vh;
+  border: 10px solid black;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: 10% 1fr;
+  font-size: 3em;
+}
+
+.closeButton {
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.exit {
+  margin-top: 7%;
+}
+
+.modalContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.modalInput {
+  border: none;
+  border-bottom: 3px solid black;
+  outline: none;
+  margin: none;
+  font-size: 24px;
+  font-family: var(--primary-font);
+  text-align: center;
+  background-color: var(--primary-color);
+}
+
+.slider {
+  width: 80%;
+  margin-top: 5%;
+}
+
 /* GAME PAGE */
 
 .gamePage {

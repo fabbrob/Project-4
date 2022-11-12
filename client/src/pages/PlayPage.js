@@ -1,17 +1,51 @@
-import React from "react";
-import {toHome, toGame} from '../helpers/Helpers';
+import Slider from '@mui/material/Slider';
+import React, { useEffect, useState } from "react";
+import { toHome, toGame } from '../helpers/Helpers';
+import CountryData from '../CountryData';
 
 const PlayPage = (props) => {
 
-  let title;
-  if (window.location.pathname === "/countries") {
-    title = "Guess the countries by their shape";
-  } else if (window.location.pathname === "/flags") {
-    title = "Guess the countries by their flags";
-  } else if (window.location.pathname === "/capitals") {
-    title = "Guess the country by its capital";
-  } else {
-    title = "Guess the borders of the country";
+  const [help, setHelp] = useState(false);
+  const [statistics, setStatistics] = useState(false);
+  const [settings, setSettings] = useState(false);
+  const [questionLength, setQuestionLength] = useState(CountryData.length)
+
+  const settingsToggle = () => {
+    setSettings(!settings);
+  }
+
+  const closeModal = () => {
+    setSettings(false)
+    setStatistics(false)
+    setHelp(false)
+  }
+
+  const handleSliderChange = (event) => {
+    setQuestionLength(event.target.value)
+  }
+
+  const handleInputChange = (event) => {
+    const newInput = event.target.value.replace(/\D/g, '');
+    if(parseInt(newInput) < 1){
+      setQuestionLength(1)
+    } else if (parseInt(newInput) > CountryData.length){
+      setQuestionLength(CountryData.length)
+    } else {
+      setQuestionLength(newInput)
+    }
+  }
+
+  //function to name the title accordingly
+  const nameTitle = () => {
+    if (window.location.pathname === "/countries") {
+      return "Guess the countries by their shape";
+    } else if (window.location.pathname === "/flags") {
+      return "Guess the countries by their flags";
+    } else if (window.location.pathname === "/capitals") {
+      return "Guess the country by its capital";
+    } else {
+      return "Guess the borders of the country";
+    }
   }
 
   return (
@@ -19,16 +53,33 @@ const PlayPage = (props) => {
       <div className="gameNav">
         <i className="fa-solid fa-circle-question"></i>
         <i className="fa-solid fa-chart-simple"></i>
-        <i className="fa-solid fa-gear"></i>
+        <i className="fa-solid fa-gear" onClick={settingsToggle}></i>
       </div>
-      <h2>{title}</h2>
-      <div className="playButton" onClick={toGame}>
-        <p>Play</p>
-      </div>
-      <div className="backToHome" onClick={toHome}>
-        <i className="fa-solid fa-house"></i>
-        <p>Back To Home</p>
-      </div>
+      {!help && !statistics && !settings ?
+        <>
+          <h2>{nameTitle()}</h2>
+          <div className="playButton" onClick={toGame}>
+            <p>Play</p>
+          </div>
+          <div className="backToHome" onClick={toHome}>
+            <i className="fa-solid fa-house"></i>
+            <p>Back To Home</p>
+          </div>
+        </>
+        :
+        <div className='modal'>
+          <div className='closeButton' onClick={closeModal}>
+            <i className='fa-solid fa-xmark exit'></i>
+          </div>
+          <div className='modalContent'>
+            <p>Set the amount of countries to play</p>
+            <input className='modalInput' type='text' value={questionLength} onChange={handleInputChange}></input>
+            <div className='slider'>
+              <Slider sx={{ color: 'black' }} value={questionLength} onChange={handleSliderChange} min={1} max={CountryData.length} />
+            </div>
+          </div>
+        </div>
+      }
     </div>
   );
 };
