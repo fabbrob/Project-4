@@ -54,3 +54,26 @@ export const toGame = () => {
     window.location = "/borders/play";
   }
 };
+
+export const setQL = (num) => {
+  const settings = localStorage.settings;
+  const value = `${num}`
+  if(settings){
+    const updatedSettings = JSON.parse(localStorage.settings);
+    updatedSettings.questionLength = value;
+    localStorage.settings = JSON.stringify(updatedSettings);
+  } else {
+    localStorage.settings = JSON.stringify({questionLength: value})
+  }
+}
+
+export const getQL = () => {
+  const settings = localStorage.settings;
+  if(settings){
+  const data = JSON.parse(settings)
+  if(data.questionLength){
+    return parseInt(data.questionLength)
+  }
+}
+    return undefined
+}

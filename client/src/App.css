@@ -192,6 +192,7 @@ body {
   font-family: var(--primary-font);
   text-align: center;
   background-color: var(--primary-color);
+  width: 20%;
 }
 
 .slider {

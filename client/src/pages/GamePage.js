@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import GuessField from "../components/GuessField";
 import FinishedPage from "../pages/FinishedPage";
-import { toPlayPage, convertSecondsToTimer } from "../helpers/Helpers";
+import { toPlayPage, convertSecondsToTimer, getQL } from "../helpers/Helpers";
 import BordersInformationDisplay from "../components/BorderInfomationDisplay";
 import CapitalsInformationDisplay from "../components/CapitalsInformationDisplay";
 import CountriesInformationDisplay from "../components/CountriesInformationDisplay";
@@ -13,6 +13,10 @@ const isBordersGame = window.location.pathname.includes("borders");
 const isCapitalsGame = window.location.pathname.includes("capitals");
 const isCountriesGame = window.location.pathname.includes("countries");
 const isFlagsGame = window.location.pathname.includes("flags");
+
+//variables for local storage settings
+const questionLength = getQL()
+console.log('on load', CountryData)
 
 //helpers
 const createAttemptObjects = (borders) => {
@@ -32,11 +36,17 @@ const getCountries = () => {
   }
 };
 
-const getRandomisedCountries = () => {
-  return getCountries().sort((a, b) => 0.5 - Math.random());
-};
+const getRandomisedCountries = (limit) => {
+  if(limit) {
+  const countries = getCountries().sort((a, b) => 0.5 - Math.random());
+  return countries.slice(0, limit)
+  } else {
+    return getCountries().sort((a, b) => 0.5 - Math.random());
+  }
+}
 
-const countries = getRandomisedCountries();
+const countries = getRandomisedCountries(questionLength);
+console.log('after randomising', CountryData)
 
 //component
 const GamePage = (props) => {
@@ -54,7 +64,7 @@ const GamePage = (props) => {
   const [attempts, setAttempts] = useState(createAttemptObjects(borders));
   const [attemptIndex, setAttemptIndex] = useState(0);
   const inputFocus = useRef();
-
+  
   //useEffect on every increment of the timer
   useEffect(() => {
     //if game not finished

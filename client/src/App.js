@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import "./App.css";
 import HomePage from "./pages/HomePage";
 import PlayPage from "./pages/PlayPage";
@@ -12,7 +12,6 @@ import GamePage from "./pages/GamePage";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage/>}></Route>
         <Route path="/countries" element={<PlayPage/>}></Route>
@@ -24,7 +23,6 @@ function App() {
         <Route path="/capitals/play" element={<GamePage/>}></Route>
         <Route path="/borders/play" element={<GamePage/>}></Route>
       </Routes>
-    </BrowserRouter>
   );
 }
 
